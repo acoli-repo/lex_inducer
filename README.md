@@ -1,6 +1,6 @@
 # Lexical Inducer: A lexical (symbolic) induction algorithm for multilingual word embeddings
 
-Idea:
+## Idea
 - propagate monolingual word embeddings to other languages
 - using dictionaries or translation tables (weighted average)
 - given source language S with embeddings E_S and target language T without embeddings
@@ -12,7 +12,14 @@ Idea:
 - truly multilingual embeddings can be achieved by:
   - for a set of languages L_1,...,L_n, embedding spaces E_L1, ..., E_Ln
   - for any word l in any of these languages, concatenate: e(l) = e_L1(l) x e_L2(l) x ... x e_Ln(l)
-  - perform dimensionality reduction
+  - perform dimensionality reduction, keep the weight matrix in order to be able to project future embeddings
 - notes
   - in order to be balanced, multilingual embeddings that are concatenated must all have the same dimensionality
   - avg may be a poor choice for embedding aggregation (drift towards center), maybe better harmonic mean
+
+## extensions
+
+bootstrap contextualized (sense) embeddings
+  - in translation studies, it is sometimes assumed that one translation corresponds to one sense
+  - over parallel text, we can concat *observed* embeddings instead of *induced* embeddings (and likewise, aggregate over induced embeddings from multiple source languages), so that we arrive at *contextualized* embeddings (each representing an observed translation set ~ sense)
+  - using this parallel text as a basis, we can then train Bert (etc.) embeddings and learn their mapping to contextualized sense embeddings => *interpretable* contextualized embeddings
