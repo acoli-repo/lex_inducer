@@ -40,3 +40,8 @@ bootstrap contextualized (sense) embeddings
   - in translation studies, it is sometimes assumed that one translation corresponds to one sense
   - over parallel text, we can concat *observed* embeddings instead of *induced* embeddings (and likewise, aggregate over induced embeddings from multiple source languages), so that we arrive at *contextualized* embeddings (each representing an observed translation set ~ sense)
   - using this parallel text as a basis, we can then train Bert (etc.) embeddings and learn their mapping to contextualized sense embeddings => *interpretable* contextualized embeddings
+
+
+## Related Research
+
+cf. [FastText](https://github.com/babylonhealth/fastText_multilingual/blob/master/align_your_own.ipynb)
