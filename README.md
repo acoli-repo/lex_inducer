@@ -1,10 +1,24 @@
 # Lexical Inducer: A lexical (symbolic) induction algorithm for multilingual word embeddings
 
+Build and test with
+
+  $> make
+
+Explore options with
+
+  $> python3 induce.py -h
+
 ## Idea
+
+### DONE
+
 - propagate monolingual word embeddings to other languages
 - using dictionaries or translation tables (weighted average)
 - given source language S with embeddings E_S and target language T without embeddings
   - for every t in T: e_s(t) = \sum_{s\in S} P(t|s) e(s)
+
+### TODO
+
 - optional: given the initial embeddings E_S, a corpus and an integer n
   - for every s in S for which s not in E_S:
     e_s(s) = avg_c avg_{x in c} e_s(x)
@@ -16,6 +30,7 @@
 - notes
   - in order to be balanced, multilingual embeddings that are concatenated must all have the same dimensionality
   - avg may be a poor choice for embedding aggregation (drift towards center), maybe better harmonic mean
+  - as we want to stay interpretable and deterministic, we can actually do *statistical* instead of *neural* dimensionality reduction, e.g., using [TruncatedSVD](https://stackoverflow.com/questions/35103085/how-can-i-use-lsa-to-reduce-dimensionality)
 
 ## extensions
 
