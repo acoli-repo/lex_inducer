@@ -1,6 +1,6 @@
 all: data
-	@# test run
-	python3 induce.py en de de-en.dic.gz -s 3 -t 2 -w 0 -d
+	@# test run (-d)
+	python3 induce.py en de de-en.dic.gz -s 3 -t 2 -w 0 -c data/bib.de.xml -d
 
 data:
 	if [ ! -e data ]; then mkdir data; fi
